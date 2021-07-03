@@ -1,0 +1,58 @@
+﻿Download and Extract Spark:
+
+
+cd /usr/opt
+
+
+sudo wget https://mirrors.estointernet.in/apache/spark/spark-3.1.2/spark-3.1.2-bin-hadoop3.2.tgz
+tar -xzvf tar -xzvf spark-3.0.2-bin-hadoop3.2.tgz
+ln -s spark spark-3.1.2-bin-hadoop3.2
+
+
+
+
+Set Spark Environment Variables:
+
+
+vi .bashrc
+
+
+export SPARK_HOME=/opt/spark
+export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin
+export PYSPARK_PYTHON=/usr/bin/python3
+export PYSPARK_DRIVER_PYTHON=/usr/bin/python3
+
+
+source .bashrc
+
+
+For Spark and Hive Connectivity:
+
+
+cp /opt/hive/conf/hive-site.xml /opt/spark-3.1.2-bin-hadoop3.2/conf
+
+
+cp /opt/hadoop/etc/hadoop/core-site.xml /opt/spark-3.1.2-bin-hadoop3.2/conf
+
+
+
+
+To start spark shell: 
+spark-shell
+
+
+To start pyspark shell:
+pyspark
+
+
+Starting & Stop Spark Cluster Manually:
+Start & Stop Spark Master :
+start-master.sh
+stop-master.sh
+
+
+Spark Master UI:
+http://localhost:8080/
+Start & Stop Spark Worker:
+start-slave.sh spark://127.0.1.1:7077
+stop-slave.sh
