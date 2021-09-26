@@ -8,12 +8,9 @@ from pyspark.sql import DataFrame
 
 def main():
         spark=SparkSession.builder.appName("DBSTest").getOrCreate()
-        #print("Hello World!")
-        #df = spark.read.load("file:///home/skiganesh/codes/coalastest.csv",format="csv", sep=",", inferSchema="true", header="true")
-        df1=spark.read.option('header','true').csv('file:///home/skiganesh/codes/coalastest.csv',inferSchema=True)
+        df1=spark.read.option('header','true').csv('file:///D:/codes/ClaypotUsecase1/source/koalastest.csv',inferSchema=True)
         df1=df1.groupBy("col_subtype","val_usage_code").pivot("perf").sum("os_000")
         df1.show(truncate=False)
-        # df=pd.read_csv("/home/skiganesh/codes/coalastest.csv")
         #print(df.count)
         # df=pd.pivot_table(df,index=["col_subtype","val_usage_code"],columns=["perf"],values=["os_000"],aggfunc={"os_000":np.sum})
         #print(df)

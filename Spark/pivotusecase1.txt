@@ -1,0 +1,1 @@
+df2=df2.pivot_table(index=['col_subtype'],columns='perf',values=['os_000'],aggfunc={'os_000':'sum'})

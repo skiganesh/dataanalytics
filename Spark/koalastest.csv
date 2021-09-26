@@ -1,0 +1,7 @@
+col_subtype,val_usage_code,perf,os_000,n
+'private','I',2109,500.00,a1
+'hdb','O',2109,600.00,a2
+'private','I',2109,800.00,a1
+'hdb','O',2109,700.00,a2
+'hdb','I',2109,450,a1
+'private','O',2109,270,a2
