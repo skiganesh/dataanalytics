@@ -1,20 +1,14 @@
 import pyspark
 from pyspark.sql import SparkSession
 from datetime import datetime
+from pyspark.sql import Row
 
 
-def dfoperations():
+def dfoperations1(spark):
     now = datetime.now()
 
     print("Inside DataFrame Operations")
-    # SparkSession is the entry point to programming Spark with the Dataset and DataFrame API.
-    spark = SparkSession \
-        .builder \
-        .config("spark.driver.memory", "4g") \
-        .appName("DataFrameOps") \
-        .getOrCreate()
 
-    spark.sparkContext.setLogLevel("Error")
 
     # A PySpark DataFrame can be created via SparkSession.createDataFrame typically by passing a list of lists,
     # tuples, dictionaries and pyspark.sql.Rows, a pandas DataFrame and an RDD consisting of such a list.
@@ -22,7 +16,7 @@ def dfoperations():
     # spark.read Returns a DataFrameReader that can be used to read data in as a DataFrame.
 
     print("Reading CSV")
-    resdf = spark.read.csv('file:///D:/codes/ClaypotUsecase1/source/restaurantrecommendataion/restaurantrecommendation.csv', header=True)
+    resdf = spark.read.csv('file:///D:/codes/ClaypotUsecase1/source/restaurantrecommendataion/restaurantrecommendation.csv', header=True, inferSchema=True)
 
     # Columns present in the dataset
     print("Columns present in the dataset")
@@ -75,3 +69,78 @@ def dfoperations():
     distresdf_2col.createOrReplaceTempView("restdata")
     tempviewdf = spark.sql("select * from restdata limit 10")
     tempviewdf.show()
+
+def dfoperations2(spark):
+
+    print("To drop duplicate rows from a dataframe")
+    df = spark.read.csv('D:\codes\ClaypotUsecase1\source\dfcleansing.csv',header=True)
+
+    print("Before")
+    df.show()
+    print("After")
+    df.dropDuplicates().show()
+    print("Remove duplicate based on specific columns only")
+    df.dropDuplicates(['name', 'height']).show()
+
+    print("To drop a specified column or columns from a dataframe")
+    # # Returns a new DataFrame that drops the specified column.
+    # # This is a no-op if schema doesn’t contain the given column name(s).
+    print("Before")
+    df.show()
+    print("After")
+    df.drop('height').show()
+
+    print("To Omit rows with null values")
+    print("Before")
+    df.show()
+    print("After")
+    df.dropna().show()
+
+    print("Get all column data types")
+    print(df.dtypes)
+
+    print("To replace Null values with some value")
+    print("Before")
+    df.show()
+    print("After")
+    df.fillna({"height" : 150}).show()
+
+    print("To filter dataframe with some condition")
+    print("Before")
+    df.show()
+    print("After")
+    print("Filter row with name Bob")
+    df.where(df.name == "Bob").show()
+    print("Filter rows with age >49")
+    df.filter(df.age > 49).show()
+
+    print("To replace one column value with another value")
+    print("Before")
+    df.show()
+    print("After")
+    df.na.replace('67', '55').show()
+
+    print("To sort dataframe by specified column or columns")
+    print("Before")
+    srtdf = df.fillna({"height": 150})
+    srtdf = srtdf.dropDuplicates()
+    srtdf.show()
+    print("Sort by height")
+    srtdf.sort("height", ascending=False).show()
+    print("Sort by age")
+    srtdf.sort("age", ascending=False).show()
+
+    print("To add a new column to dataframe using existing one")
+    print("Before")
+    df.show()
+    print("After")
+    df.withColumn('newage', df.age+2).show()
+
+    print("To rename a column in the dataframe")
+    print("Before")
+    df.show()
+    print("After")
+    df.withColumnRenamed('age','newage').show()
+
+
+
