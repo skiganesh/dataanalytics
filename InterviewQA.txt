@@ -1,0 +1,39 @@
+
+1. HDFS Arch - Hadoop Distributed File System.
+2. Distributed - File will get Splitted into blocks of size 128 MB and get stored across cluster. 
+3. Cluster - Group of instances. 
+4. DFS Shell commands - To access dfs file system.
+5. DFS Admin commands - To perform admin operations.
+6. Create and Drop tables - Hive client. 
+7. Metastore - Service to start before initiating hive client.
+8. Types of metastore - Local and Remote.
+9. Purpose of metastore - To store hive metadata. Data about hive. 
+10. Local metastore - Metastore will run in hive JVM.
+11. Remote metastre - Metastore will run in a different JVM.
+12. JVM - Java Virtual Machine - It is a container. 
+13. Partitions - Applied on tables. Increase query performance.Create as subdirectory.  
+13. Hive warehouse directory - Managed/Internal tables.
+14. Types of tables - External & Internal/Managed.
+15. Difference btw External & Internal - Metadata & physical file both deleted for internal table. 
+External - only metadata, physical file will not get dropped becuase it is shared with other user.
+16. Describe formatted table - To get complete details of table, like table type, partition column, buckets..
+17. External table - Used when physical file is being shared by different users.
+18. Yarn Architecture - Yet Another Resource Negotiator. Manage and allocate resources for computation.
+19. Start-yarn.sh to start yarn services.
+20. Yarn components - Resource Manager & Node Manager
+21. Resource Manager - Ultimate authority to manage all resources.
+22. Node Manager - Machine framework agent. Control only one machine. One per node (instance/system).
+23. HDFS Architecture - Manage files system. Namenode master & Datanode slave. 
+24. HDFS components - Name node, data node, secondary name node.
+25. Datanode - Determine mapping blocks. Create/Delete blocks. 
+26. Namenode - Execute file system namespace operation like read/write/rename.
+27. Robustness - Store data reliablely even in the presence of failure. 
+28. Types of failure - Namenode failure, datanode failure and network partitions. 
+29. Datanode failure - Namenode does not forward any new IO request.
+30. Replication  - Happens when blocks fall under specified value (Replication factor). 
+31. Replication factor - Number of copies of data to be maintained.
+32. HDFS - Supports very large files.
+33. HDFS - WORM (Write Once Read Many) 
+34. Buckets - Sub sampling within partition, join optimization.
+35. How data moved to specific bucket - Hash partition algorithm.
+
