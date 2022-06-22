@@ -32,4 +32,5 @@
 												            <value>file:///opt/hadoop/hdfs/datanode</value>
 													        </property>
 													</configuration>
-</configuration>
+												</configuration>
+<!--comment test -->
