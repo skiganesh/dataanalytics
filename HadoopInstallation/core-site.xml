@@ -27,4 +27,5 @@
 								            <value>/opt/hadoop/hadoop_tmp</value>
 									        </property>
 									</configuration>
-</configuration>
+								</configuration>
+<!--Change-->
