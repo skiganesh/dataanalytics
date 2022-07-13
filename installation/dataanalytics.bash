@@ -29,7 +29,7 @@ export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
 EOT
 source .bashrc
 cd /opt/hadoop/etc/hadoop/
-cat <<EOT >> hadoop-evn.sh
+cat <<EOT >> hadoop-env.sh
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export HADOOP_CONF_DIR=/opt/hadoop/etc/hadoop
 EOT
@@ -61,11 +61,11 @@ sudo wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java_8
 
 sudo dpkg -x mysql-connector-java_8.0.23-1ubuntu16.04_all.deb /
 cd /usr/share/java
-sudo cp mysql-connector-java-8.0.23.jar /usr/local/apache-hive-3.1.2-bin/lib
-cd /usr/local/hadoop-3.3.0/share/hadoop/common/lib/
-sudo cp  guava-27.0-jre.jar /usr/local/apache-hive-3.1.2-bin/lib/
-cd /usr/local/apache-hive-3.1.2-bin/lib/
+sudo cp mysql-connector-java-8.0.23.jar /opt/apache-hive-3.1.2-bin/lib
+cd /opt/hadoop-3.3.0/share/hadoop/common/lib/
+sudo cp  guava-27.0-jre.jar /opt/apache-hive-3.1.2-bin/lib/
+cd /opt/apache-hive-3.1.2-bin/lib/
 sudo mv guava-19.0.jar guava_back-19.0.jar
 cd /opt/hive/conf
 cp hive-default.xml.template hive-site.xml
-
+sudo apt install mysql-server

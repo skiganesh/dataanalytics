@@ -1,0 +1,11 @@
+100,Hari,Manager,IT,200000
+101,Crystal,Analyst,Bank,100000
+102,Mark,Programmer,Store,50000
+103,Angel,Associate,Insurence,150000
+104,John,Team leader,IT,180000
+105,LY,Associate,Bank,22000
+106,Mandy,Analyst,IT,170000
+107,April,Manager,Store,40000
+108,James,Programmer,Insurence,20000
+109,Moushmi,Assistant Programmer,Bank,22000
+110,LYA,Associate,Bank,20000

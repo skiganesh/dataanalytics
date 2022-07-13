@@ -1,2 +1,2 @@
-tv		LG,Sony,Samsung,Micromax
+tv	LG,Sony,Samsung,Micromax
 washingmachine	LG,Whirlpool,Videocon,Bosch
